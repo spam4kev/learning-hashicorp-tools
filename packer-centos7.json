@@ -1,0 +1,10 @@
+{
+  "type": "virtualbox-iso",
+  "guest_os_type": "Linux_64",
+  "iso_url":"file:///home/kfitzhen/code/github/hashitools/CentOS-7-x86_64-Minimal-1503-01.iso",
+  "iso_checksum": "bba314624956961a2ea31dd460cd860a77911c1e0a56e4820a12b9c5dad363f5",
+  "iso_checksum_type": "md5",
+  "ssh_username": "packer",
+  "ssh_password": "packer",
+  "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
+}
