@@ -28,6 +28,7 @@ sudo mount -o loop,ro VBoxGuestAdditions_5.2.8.iso VBoxGuestAdditions
 sudo su -
 cd data/code/github/learning-hashitools/
 sh VBoxGuestAdditions/VBoxLinuxAdditions.run
-
+exit
+sudo umount VBoxGuestAdditions/
 vagrant init
 
