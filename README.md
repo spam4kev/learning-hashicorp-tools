@@ -17,11 +17,17 @@ scp root@10.11.11.14:/c/media/BitTorrent/operating_systems/centos/CentOS-7-x86_6
 # Install deps
 sudo dnf install ./vagrant_2.0.3_x86_64.rpm ./VirtualBox-5.2-5.2.8_121009_fedora26-1.x86_64.rpm -y
 sudo dnf install kernel-devel kernel-headers dkms
+## https://www.if-not-true-then-false.com/2010/install-virtualbox-guest-additions-on-fedora-centos-red-hat-rhel/
+sudo dnf install gcc kernel-devel kernel-headers dkms make bzip2 perl
+KERN_DIR=/usr/src/kernels/`uname -r`/build
+
 # Start Stuff
 ## Create a base box (https://www.vagrantup.com/docs/virtualbox/boxes.html)
 mkdir VBoxGuestAdditions
 sudo mount -o loop,ro VBoxGuestAdditions_5.2.8.iso VBoxGuestAdditions
-sudo sh VBoxGuestAdditions/VBoxLinuxAdditions.run
+sudo su -
+cd data/code/github/learning-hashitools/
+sh VBoxGuestAdditions/VBoxLinuxAdditions.run
 
 vagrant init
 
