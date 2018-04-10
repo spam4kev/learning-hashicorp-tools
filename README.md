@@ -30,7 +30,7 @@ packer --version
 ```
 # Start Stuff
 ## Create a base box (https://www.vagrantup.com/docs/virtualbox/boxes.html)
-``` 
+```
 KERN_DIR=/usr/src/kernels/`uname -r`/build
 mkdir VBoxGuestAdditions
 sudo mount -o loop,ro VBoxGuestAdditions_5.2.8.iso VBoxGuestAdditions
@@ -46,10 +46,12 @@ shadl=$(sha256sum $(ls *Minimal*) | cut -f1 -d' ')
 [[ $shadl -eq $shagold ]] &&  sed -i "s/\"iso_checksum\": .*/\"iso_checksum\": \"$shagold\",/" centos-vagrant.json  || echo "iso sha doesnt match - DO NOT CONTINUE"
 ```
 
+```
+mkdir http && touch http/ks.cfg
+```
 
 
 
 
 
 vagrant init
-
