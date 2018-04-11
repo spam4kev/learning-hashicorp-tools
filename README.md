@@ -98,7 +98,32 @@ Build 'virtualbox-iso' finished.
 --> virtualbox-iso: VM files in directory: output-virtualbox-iso
 
 ```
+Output results
+```
+ $ tree
+.
+├── CentOS-7-x86_64-Minimal-1708.iso
+├── epel-release-latest-7.noarch.rpm
+├── http
+│   └── ks.cfg
+├── output-virtualbox-iso
+│   ├── ORG_CENTOS7-disk001.vmdk
+│   └── ORG_CENTOS7.ovf
+├── packer
+├── packer_1.2.2_linux_amd64.zip
+├── packer_cache
+├── packer-centos7.json
+├── preseed.cfg
+├── README.md
+├── sha256sum.txt.asc
+├── vagrant_2.0.3_x86_64.rpm
+├── Vagrantfile
+├── VBoxGuestAdditions
+├── VBoxGuestAdditions_5.2.8.iso
+└── VirtualBox-5.2-5.2.8_121009_fedora26-1.x86_64.rpm
 
+4 directories, 15 files
+```
 
 
 vagrant init
