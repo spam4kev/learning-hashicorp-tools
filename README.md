@@ -47,10 +47,22 @@ shadl=$(sha256sum $(ls *Minimal*) | cut -f1 -d' ')
 ```
 
 ```
-mkdir http && touch http/ks.cfg
+$ mkdir http && touch http/ks.cfg
+
 ```
+* example of ks.cfg:
+** http://softwaretester.info/create-simple-centos-7-virtualbox-with-packer/
+** https://github.com/geerlingguy/packer-centos-7/tree/master/http
+* reference manual for ks.cfg: ** https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-kickstart-syntax
 
+# Run the dang thang
 
+```
+$ packer validate packer-centos7.json
+Template validated successfully.
+$ ~/code/github/learning-hashicorp-tools (master) $ sudo /usr/local/sbin/packer build packer-centos7.json 
+
+```
 
 
 
