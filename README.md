@@ -30,6 +30,7 @@ packer --version
 ```
 # Start Stuff
 ## Create a base box (https://www.vagrantup.com/docs/virtualbox/boxes.html)
+* I dont think this is needed
 ```
 KERN_DIR=/usr/src/kernels/`uname -r`/build
 mkdir VBoxGuestAdditions
@@ -125,5 +126,6 @@ Output results
 4 directories, 15 files
 ```
 
+# Next up, figure out how to spoof a 169.254.169.254 meta-data endpoint so cloud init can be run
 
 vagrant init
