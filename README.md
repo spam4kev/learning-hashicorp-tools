@@ -128,4 +128,8 @@ Output results
 
 # Next up, figure out how to spoof a 169.254.169.254 meta-data endpoint so cloud init can be run
 
+  could maybe add commands to box creation that adds a virtual interface and ip's it 169.254.169.254, installs httpd, makes appropriate dirs (apiversion, meta-data, user-data), copies the cloud init userdata yaml into appropriate sub folders
+
+
+
 vagrant init
