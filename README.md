@@ -129,7 +129,24 @@ Output results
 # Next up, figure out how to spoof a 169.254.169.254 meta-data endpoint so cloud init can be run
 
   could maybe add commands to box creation that adds a virtual interface and ip's it 169.254.169.254, installs httpd, makes appropriate dirs (apiversion, meta-data, user-data), copies the cloud init userdata yaml into appropriate sub folders
-
+Test notes
+```
+yum install httpd
+mkdir /var/www/html/latest/meta-data -p
+git clone https://gitlab.devops.geointservices.io/ndaas/vpc.git
+cp vpc/aws-scripts/userDataHardenedAMI.yml /var/www/html/latest/user-data
+echo foo > /var/www/html/latest/meta-data/instance-id
+cd /var/lib/cloud/instances
+cloud-init analyze --file userDataHardenedAMI.yml
+cp /etc/sysconfig/network-scripts/ifcfg-enp0s3 /etc/sysconfig/network-scripts/ifcfg-enp0s3:1
+sed -i 's/dhcp/static/g' /etc/sysconfig/network-scripts/ifcfg-enp0s3\:1
+sed -i /HWADDR/d /etc/sysconfig/network-scripts/ifcfg-enp0s3\:1
+sed -i 's/enp0s3/enp0s3:1' /etc/sysconfig/network-scripts/ifcfg-enp0s3\:1
+systemctl restart network
+systemctl start httpd
+systemctl enable httpd
+curl 169.254.169.254/latest/user-data
+```
 
 
 vagrant init
